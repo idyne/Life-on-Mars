@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8865926384596172412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8865926384596172411}
+  - component: {fileID: 8865926384596172410}
+  m_Layer: 0
+  m_Name: CableSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8865926384596172411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865926384596172412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8865926384596172410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865926384596172412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db7f7a2564e1ce34db7c6bf197b56cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Colors:
+  - {r: 0.23349173, g: 0.7735849, b: 0.20069422, a: 0}
+  - {r: 0.21867211, g: 0.46758536, b: 0.735849, a: 0}
+  - {r: 0.7830189, g: 0.2031417, b: 0.2031417, a: 0}
+  - {r: 0.8207547, g: 0.7749153, b: 0.15098791, a: 0}
+  - {r: 0.6539812, g: 0.32579717, b: 0.759, a: 0}
+  - {r: 0.32988602, g: 0.894, b: 0.72156996, a: 0}
+  HeldJack: {fileID: 0}

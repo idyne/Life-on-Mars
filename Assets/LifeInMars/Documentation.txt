@@ -1,0 +1,25 @@
+There must be only one gameobject named "Canvas" in a scene.
+Every scene must contain UI object.
+Script execution time of GameManager = 100
+Every scene must contain LevelManager object.
+
+TAGS AND LAYERS
+
+Tags:
+	0 - Plant
+	1 - Start Socket
+	2 - End Socket
+
+Layers:
+	8 - Post Process
+
+
+DEPENDENCIES
+
+Curved World
+Epic Toon FX
+Toony Colors Pro 2
+LeanTween
+MeshAnimator
+Obi Roop
+PathCreator
