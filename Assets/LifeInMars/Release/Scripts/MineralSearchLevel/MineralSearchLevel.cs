@@ -134,12 +134,14 @@ public class MineralSearchLevel : LevelManager
     public override void StartLevel()
     {
         print("MineralSearchLevel started");
+        GameManager.Instance.InstantiateInstructionText("Collect all the minerals before the oxygen runs out!", 6);
     }
 
     public IEnumerator CollectMineral(Mineral mineral)
     {
         if (!mineral.isCollected)
         {
+            GameManager.Instance.InstantiateSuccessText(collectedMineralCount);
             mineral.isCollected = true;
             minerals[minerals.IndexOf(mineral)] = null;
             collectedMineralCount++;

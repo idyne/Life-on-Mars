@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject uiStartTextPrefab = null;
     [SerializeField] private GameObject confettiShowerPrefab = null;
     [SerializeField] private GameObject confettiBlastPrefab = null;
+    [SerializeField] private GameObject successTextPrefab = null;
+    [SerializeField] private string[] successTexts = null;
+    [SerializeField] private Color[] successTextColors = null;
+    [SerializeField] private GameObject instructionTextPrefab = null;
+
 
     public static GameManager Instance
     {
@@ -188,9 +193,32 @@ public class GameManager : MonoBehaviour
         Instantiate(confettiBlastPrefab, Camera.main.transform);
     }
 
-    private Transform GetUICanvas()
+    public Transform GetUICanvas()
     {
         return GameObject.Find("UI").transform.Find("Canvas");
+    }
+
+    public void InstantiateSuccessText(int index)
+    {
+        Text successText = Instantiate(successTextPrefab, GetUICanvas()).GetComponent<Text>();
+        successText.text = successTexts[index];
+        successText.color = successTextColors[index];
+        successText.transform.LeanMoveLocalY(successText.transform.position.y + 3, 2f);
+        successText.transform.LeanScale(successText.transform.localScale * 1.2f, 0.8f).setEaseOutElastic();
+        LeanTween.textAlpha(successText.GetComponent<RectTransform>(), 0, 1f).setEaseInCubic();
+        Destroy(successText, 2);
+    }
+
+    public void InstantiateInstructionText(string text, float time)
+    {
+        Text instructionText = Instantiate(instructionTextPrefab, GetUICanvas()).GetComponent<Text>();
+        instructionText.transform.localScale = Vector3.zero;
+        instructionText.transform.LeanScale(Vector3.one, 0.2f);
+        instructionText.text = text;
+        LTDescr scaleLoop = null;
+        LeanTween.delayedCall(0.2f, () => { scaleLoop = instructionText.transform.LeanScale(instructionText.transform.localScale * 1.1f, 0.8f).setEaseInQuart().setLoopPingPong(); });
+        LeanTween.delayedCall(time - 0.2f, () => { scaleLoop.pause(); instructionText.transform.LeanScale(Vector3.zero, 0.2f); });
+        Destroy(instructionText, time + 2);
     }
 
     private UILoadingScreen CreateLoadingScreen()
@@ -215,12 +243,6 @@ public class GameManager : MonoBehaviour
             CurrentLevel += 1;
             AdjustCurrentLevel();
         }
-    }
-
-    public IEnumerator DoDelayed(float delay, Callback Callback)
-    {
-        yield return new WaitForSeconds(delay);
-        Callback();
     }
 
     public enum GameState { STARTED, NOT_STARTED, PAUSED, FINISHED }

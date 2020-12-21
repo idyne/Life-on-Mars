@@ -107,7 +107,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fa39e6bdeb05419418881a10d81384c3, type: 2}
   - {fileID: 11400000, guid: 09075021c6197204e91122f257411372, type: 2}
   speed: 1
-  updateWhenOffscreen: 0
+  updateWhenOffscreen: 1
   playAutomatically: 1
   resetOnEnable: 1
   eventReciever: {fileID: 0}

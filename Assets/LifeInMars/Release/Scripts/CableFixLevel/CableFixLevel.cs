@@ -69,6 +69,7 @@ public class CableFixLevel : LevelManager
     public override void StartLevel()
     {
         started = true;
+        LeanTween.delayedCall(pathCreator.path.length / camSpeed + 0.2f, () => { GameManager.Instance.InstantiateInstructionText("Remove the screws", 4); });
     }
 
     private IEnumerator OpenLid()
@@ -79,6 +80,7 @@ public class CableFixLevel : LevelManager
         cam.transform.LeanMove(cam.transform.position+ cam.transform.forward * 0.25f, 0.6f);
         yield return new WaitForSeconds(0.6f);
         CableSystem.Unlock();
+        GameManager.Instance.InstantiateInstructionText("Fix the cables", 4);
     }
 
 }

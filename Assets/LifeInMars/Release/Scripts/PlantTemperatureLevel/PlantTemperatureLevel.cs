@@ -14,6 +14,7 @@ public class PlantTemperatureLevel : LevelManager
     [SerializeField] private AirConditioner airConditioner = null;
     [SerializeField] private string[] headers = null;
     [SerializeField] private Image[] nodes = null;
+
     private int headerIndex = 0;
 
     private int enteredTemperature = 0;
@@ -69,7 +70,7 @@ public class PlantTemperatureLevel : LevelManager
 
     private void SetNodeColor(int index, bool success)
     {
-        nodes[index].color = success ? 
+        nodes[index].color = success ?
             Color.HSVToRGB(107f / 360f, 85f / 100f, 100f / 100f) :
             Color.HSVToRGB(11f / 360f, 100f / 100f, 100f / 100f);
     }
@@ -80,6 +81,11 @@ public class PlantTemperatureLevel : LevelManager
         {
             bool success = EnteredTemperature == requiredTemperature;
             SetNodeColor(headerIndex, success);
+            if (success)
+            {
+                GameManager.Instance.InstantiateSuccessText(headerIndex);
+
+            }
             if (success && headerIndex < headers.Length - 1)
             {
                 SetRequiredTemperature();

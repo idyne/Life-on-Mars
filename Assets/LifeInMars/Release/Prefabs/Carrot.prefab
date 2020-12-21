@@ -169,9 +169,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshAnimator: {fileID: 149425181409398209}
   rend: {fileID: 2132203004468742905}
-  badColors:
-  - {r: 0.5377358, g: 0.3936102, b: 0.18009079, a: 0}
-  - {r: 0.823, g: 0.5805703, b: 0.19798583, a: 0}
-  goodColors:
-  - {r: 0.34016353, g: 0.745283, b: 0.20038268, a: 0}
-  - {r: 0.922, g: 0.6390214, b: 0.18439999, a: 0}

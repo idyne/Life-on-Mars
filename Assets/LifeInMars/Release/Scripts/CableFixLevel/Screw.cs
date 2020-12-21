@@ -7,6 +7,7 @@ public class Screw : MonoBehaviour
     private Animator anim;
     private bool isUsed = false;
     private static CableFixLevel levelManager = null;
+    [SerializeField] private GameObject sparkleEffect = null;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class Screw : MonoBehaviour
         if (!isUsed && GameManager.Instance.State == GameManager.GameState.STARTED)
         {
             isUsed = true;
+            Destroy(sparkleEffect);
             anim.SetTrigger("Turn");
             levelManager.ScrewCount--;
         }

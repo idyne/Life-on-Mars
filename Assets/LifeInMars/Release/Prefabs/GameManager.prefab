@@ -56,3 +56,15 @@ MonoBehaviour:
     type: 3}
   confettiShowerPrefab: {fileID: 155770, guid: 039f0809d882b7f44ac9a410a3f7fa26, type: 3}
   confettiBlastPrefab: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
+  successTextPrefab: {fileID: 6147777336928884594, guid: f9f43b5712107af47871506df859be9c,
+    type: 3}
+  successTexts:
+  - NICE
+  - AWESOME
+  - GOOD JOB!
+  successTextColors:
+  - {r: 1, g: 0.9507434, b: 0.14199996, a: 1}
+  - {r: 0.17000002, g: 0.8710831, b: 1, a: 1}
+  - {r: 0.33653337, g: 1, b: 0.17000002, a: 1}
+  instructionTextPrefab: {fileID: 6147777336928884594, guid: 6f186ca0da1e96240804128ef133a549,
+    type: 3}

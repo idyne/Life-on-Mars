@@ -1074,7 +1074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7777888459526621075
 Transform:
   m_ObjectHideFlags: 0
@@ -2004,8 +2004,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8853664243226777373, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
 --- !u!4 &3803133371471772012 stripped
 Transform:
@@ -2065,8 +2064,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8853664243226777373, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
 --- !u!4 &4335344477746873914 stripped
 Transform:
@@ -2311,8 +2309,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw 4
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8853664243226777373, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
 --- !u!4 &7926636347156341347 stripped
 Transform:
@@ -2712,8 +2709,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Screw 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8853664243226777373, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cddf8b1fbb5562e479f2ccb7ec48e47e, type: 3}
 --- !u!4 &6373015069212343016 stripped
 Transform:
