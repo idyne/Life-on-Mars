@@ -9,6 +9,7 @@ public class MineralSearchLevel : LevelManager
     [SerializeField] private Slider timeLeftSlider = null;
     [SerializeField] private GameObject orbEffectPrefab = null;
     [SerializeField] private GameObject directionArrowPrefab = null;
+    [SerializeField] private GameObject[] mineralPanelChecks = null;
     //[SerializeField] private Transform directionCanvas = null;
 
     //private RectTransform[] directionArrows;
@@ -27,6 +28,7 @@ public class MineralSearchLevel : LevelManager
         CreateDirectionArrows();
         timeLeftSlider.maxValue = timeLimit;
         timeLeftSlider.value = timeLimit;
+        type = LevelType.MINERAL;
     }
 
     private void Update()
@@ -142,10 +144,17 @@ public class MineralSearchLevel : LevelManager
         if (!mineral.isCollected)
         {
             GameManager.Instance.InstantiateSuccessText(collectedMineralCount);
+            int emojiIndex = 3;
+            if (collectedMineralCount == 1)
+                emojiIndex = 4;
+            else if (collectedMineralCount == 2)
+                emojiIndex = 5;
+            GameManager.Instance.InstantiateEmojiEffect(emojiIndex);
             mineral.isCollected = true;
             minerals[minerals.IndexOf(mineral)] = null;
             collectedMineralCount++;
             //minerals.Remove(mineral);
+            mineralPanelChecks[mineral.Index].SetActive(true);
             mineral.transform.LeanScale(Vector3.zero, 0.1f);
             Destroy(mineral.GetComponent<Collider>());
             //Instantiate(orbEffectPrefab, mineral.transform.position + Vector3.up * 0.3f, orbEffectPrefab.transform.rotation);

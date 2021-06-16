@@ -7,6 +7,7 @@ TagManager:
   - Plant
   - Start Socket
   - End Socket
+  - Second Camera
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - 
   - 
   - Post Process
-  - 
+  - Second Camera
   - 
   - 
   - 

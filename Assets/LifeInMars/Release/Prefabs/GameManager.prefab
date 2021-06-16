@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7550869262896145937}
   - component: {fileID: 7550869262896145938}
+  - component: {fileID: 2468198728730441319}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,6 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  successTexts:
+  - NICE
+  - AWESOME
+  - GOOD JOB!
+  successTextColors:
+  - {r: 1, g: 0.9507434, b: 0.14199996, a: 1}
+  - {r: 0.17000002, g: 0.8710831, b: 1, a: 1}
+  - {r: 0.33653337, g: 1, b: 0.17000002, a: 1}
   uiPrefab: {fileID: 1003886238241856403, guid: 8ae7f445510c80746a8196fe459d505f,
     type: 3}
   uiLoadingScreenPrefab: {fileID: 3310923560202025266, guid: 277c639a61f250e4db4bcc8f12680c2a,
@@ -58,13 +67,27 @@ MonoBehaviour:
   confettiBlastPrefab: {fileID: 129898, guid: 36bdc02b23d9ca94d93bd715c0cca5c0, type: 3}
   successTextPrefab: {fileID: 6147777336928884594, guid: f9f43b5712107af47871506df859be9c,
     type: 3}
-  successTexts:
-  - NICE
-  - AWESOME
-  - GOOD JOB!
-  successTextColors:
-  - {r: 1, g: 0.9507434, b: 0.14199996, a: 1}
-  - {r: 0.17000002, g: 0.8710831, b: 1, a: 1}
-  - {r: 0.33653337, g: 1, b: 0.17000002, a: 1}
   instructionTextPrefab: {fileID: 6147777336928884594, guid: 6f186ca0da1e96240804128ef133a549,
     type: 3}
+  emojiEffectPrefabs:
+  - {fileID: 156528, guid: 93a7485b7f1564c4aae6a739c3edc50e, type: 3}
+  - {fileID: 1393394035347250, guid: 309e5b7789ae90b4d9a211eae4438307, type: 3}
+  - {fileID: 128860, guid: bfd8b45b9bf378b408fdc5e3acd4992f, type: 3}
+  - {fileID: 169446, guid: 1ff355f4b9d78ce4eb64b57ffef36acc, type: 3}
+  - {fileID: 180048, guid: 4a9bb31a555add44ba9d0dbc0c220e70, type: 3}
+  - {fileID: 173990, guid: 69359de5f8759454bbfe449e619129bc, type: 3}
+  - {fileID: 113530, guid: b25107bb34ffafe48aced68e45280a21, type: 3}
+  cursor: {fileID: 2800000, guid: 802679363d30b5d4ebe63a5f5d25ad0f, type: 3}
+  positionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &2468198728730441319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550869262896145936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63abc5be88d483248a46d278109821e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

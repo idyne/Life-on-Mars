@@ -1,5 +1,59 @@
 {
   "dependencies": {
+    "com.google.external-dependency-manager": {
+      "version": "1.2.163",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://unityregistry-pa.googleapis.com"
+    },
+    "com.rocket.rocketcoroutine": {
+      "version": "1.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.rocket.rocketlog": "1.0.2"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.rocket.rocketfacebook": {
+      "version": "1.1.4",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.rocket.rocketlog": "1.0.2",
+        "com.rocket.rocketutils": "1.1.7"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.rocket.rocketgm": {
+      "version": "1.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.rocket.rocketlog": "1.0.2",
+        "com.rocket.rocketcoroutine": "1.0.2",
+        "com.rocket.rocketutils": "1.1.7"
+      },
+      "url": "https://registry.npmjs.org"
+    },
+    "com.rocket.rocketlog": {
+      "version": "1.0.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.org"
+    },
+    "com.rocket.rocketutils": {
+      "version": "1.1.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.rocket.rocketlog": "1.0.2",
+        "com.rocket.rocketcoroutine": "1.0.2"
+      },
+      "url": "https://registry.npmjs.org"
+    },
     "com.unity.collab-proxy": {
       "version": "1.2.16",
       "depth": 0,

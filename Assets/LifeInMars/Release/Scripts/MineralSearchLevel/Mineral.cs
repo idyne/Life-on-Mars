@@ -7,6 +7,7 @@ public class Mineral : MonoBehaviour
     public Color glowColor;
     [SerializeField] private Renderer rend;
     private Material glowMaterial;
+    [SerializeField] private int index = -1;
     public bool isCollected = false;
 
     private void Awake()
@@ -20,5 +21,13 @@ public class Mineral : MonoBehaviour
     private void Update()
     {
         transform.Rotate(new Vector3(0, Time.deltaTime * 20, 0));
+    }
+
+    public int Index
+    {
+        get
+        {
+            return index;
+        }
     }
 }

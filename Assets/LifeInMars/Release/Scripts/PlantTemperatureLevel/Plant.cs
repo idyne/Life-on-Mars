@@ -11,6 +11,7 @@ public class Plant : MonoBehaviour
     private Color[] badColors;
     private Color[] goodColors;
     private Gradient[] gradients;
+    private Material[] originalMaterials;
 
     private bool success = false;
     private bool finish = false;
@@ -20,12 +21,12 @@ public class Plant : MonoBehaviour
     private void Awake()
     {
         transform.Rotate(new Vector3(0, Random.Range(0, 360), 0));
-        meshAnimator.Play(0);
+        originalMaterials = (Material[])rend.materials.Clone();
         SetGoodColors();
-        SetBadColors();
+        SetBadColors(40);
         SetColorKeys();
 
-        SetDefaultColors();
+        SetDefaultColors(currentGradientTime);
 
     }
 
@@ -44,14 +45,19 @@ public class Plant : MonoBehaviour
         }
     }
 
-    private void SetBadColors()
+    private void SetBadColors(float hue)
     {
-        badColors = new Color[rend.materials.Length];
-        for (int i = 0; i < rend.materials.Length; i++)
+        SetBadColors(hue, 1);
+    }
+
+    private void SetBadColors(float hue, float saturationMultiplier)
+    {
+        badColors = new Color[originalMaterials.Length];
+        for (int i = 0; i < originalMaterials.Length; i++)
         {
-            float H, S, V;
-            Color.RGBToHSV(rend.materials[i].color, out H, out S, out V);
-            badColors[i] = Color.HSVToRGB(40f / 360f, S, V);
+            badColors[i] = originalMaterials[i].color;
+            badColors[i] = ColorManager.SetHue(badColors[i], hue);
+            badColors[i] = ColorManager.SetSaturation(badColors[i], ColorManager.GetSaturation(badColors[i]) * saturationMultiplier);
         }
     }
 
@@ -60,21 +66,15 @@ public class Plant : MonoBehaviour
         gradients = new Gradient[rend.materials.Length];
         for (int i = 0; i < rend.materials.Length; i++)
         {
-            gradients[i] = new Gradient();
-            GradientColorKey[] colorKeys = new GradientColorKey[2];
-            colorKeys[0].color = badColors[i];
-            colorKeys[0].time = 0.0f;
-            colorKeys[1].color = goodColors[i];
-            colorKeys[1].time = 1.0f;
-            gradients[i].colorKeys = colorKeys;
+            gradients[i] = ColorManager.CreateGradient(badColors[i], goodColors[i]);
         }
     }
 
-    private void SetDefaultColors()
+    private void SetDefaultColors(float time)
     {
         for (int i = 0; i < rend.materials.Length; i++)
         {
-            rend.materials[i].color = gradients[i].Evaluate(currentGradientTime);
+            rend.materials[i].color = gradients[i].Evaluate(time);
         }
     }
 
@@ -87,17 +87,28 @@ public class Plant : MonoBehaviour
         }
     }
 
-    public void Fail()
+    public void Fail(int animationIndex)
     {
-        meshAnimator.Play(1);
+        meshAnimator.Play(animationIndex);
         success = false;
         finish = true;
     }
 
-    public void Success()
+    public void Success(int animationIndex)
     {
-        meshAnimator.Play(2);
+
+        meshAnimator.Play(animationIndex);
+        if (animationIndex + 1 < meshAnimator.animations.Length)
+            meshAnimator.PlayQueued(meshAnimator.animations[animationIndex + 1].animationName);
         success = true;
         finish = true;
+    }
+
+    public void Freeze()
+    {
+        SetBadColors(180, 1 / 2f);
+        SetGoodColors();
+        SetColorKeys();
+        SetDefaultColors(1);
     }
 }

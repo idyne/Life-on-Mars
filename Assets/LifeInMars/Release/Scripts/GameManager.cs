@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using RocketGM;
+using RocketFacebook;
 public class GameManager : MonoBehaviour
 {
     public delegate void Callback();
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
 
     private UIStartText uiStartText = null;
 
+    [SerializeField] private string[] successTexts = null;
+    [SerializeField] private Color[] successTextColors = null;
+    [Header("Prefabs")]
     [SerializeField] private GameObject uiPrefab = null;
     [SerializeField] private GameObject uiLoadingScreenPrefab = null;
     [SerializeField] private GameObject uiCompleteScreenPrefab = null;
@@ -26,9 +31,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject confettiShowerPrefab = null;
     [SerializeField] private GameObject confettiBlastPrefab = null;
     [SerializeField] private GameObject successTextPrefab = null;
-    [SerializeField] private string[] successTexts = null;
-    [SerializeField] private Color[] successTextColors = null;
     [SerializeField] private GameObject instructionTextPrefab = null;
+    [SerializeField] private GameObject[] emojiEffectPrefabs = null;
+
+
 
 
     public static GameManager Instance
@@ -55,6 +61,25 @@ public class GameManager : MonoBehaviour
     {
         if (!isLocked)
             CheckInput();
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            TakeScreenshot();
+        }
+    }
+
+    private void TakeScreenshot()
+    {
+        string folderPath = Directory.GetCurrentDirectory() + "/Screenshots/";
+
+        if (!System.IO.Directory.Exists(folderPath))
+            System.IO.Directory.CreateDirectory(folderPath);
+
+        var screenshotName =
+                                "Screenshot_" +
+                                System.DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss") +
+                                ".png";
+        ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, screenshotName));
+        Debug.Log(folderPath + screenshotName);
     }
 
     private void CheckInput()
@@ -69,13 +94,18 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && State == GameState.NOT_STARTED)
         {
-            print("GameManager level started");
-            State = GameState.STARTED;
-            if (uiStartText)
-                uiStartText.Hide();
-
-            LevelManager.Instance.StartLevel();
+            StartGame();
         }
+    }
+
+    private void StartGame()
+    {
+        print("GameManager level started");
+        State = GameState.STARTED;
+        if (uiStartText)
+            uiStartText.Hide();
+        RocGm.PlayerProgress.StartProgress(CurrentLevel);
+        LevelManager.Instance.StartLevel();
     }
 
     public int CurrentLevel
@@ -144,7 +174,10 @@ public class GameManager : MonoBehaviour
         if (loadingScreen)
             loadingScreen.Hide();
         CreateUILevelText();
-        CreateUIStartText();
+        print(LevelManager.Instance.Type);
+        if (LevelManager.Instance.Type == LevelManager.LevelType.PLANT)
+            CreateUIStartText(0.38f);
+        else CreateUIStartText();
         isLocked = false;
         State = GameState.NOT_STARTED;
     }
@@ -166,18 +199,26 @@ public class GameManager : MonoBehaviour
         uiStartText = go.GetComponent<UIStartText>();
     }
 
+    private void CreateUIStartText(float verticalAnchorPosition)
+    {
+        Transform parent = GetUICanvas();
+        GameObject go = Instantiate(uiStartTextPrefab, parent);
+        Text levelText = go.GetComponent<Text>();
+        RectTransform rectTransform = go.GetComponent<RectTransform>();
+        rectTransform.anchorMin = new Vector2(rectTransform.anchorMin.x, verticalAnchorPosition);
+        rectTransform.anchorMax = new Vector2(rectTransform.anchorMax.x, verticalAnchorPosition);
+        rectTransform.anchoredPosition = Vector2.zero;
+        levelText.text = "TAP TO PLAY";
+        uiStartText = go.GetComponent<UIStartText>();
+    }
+
     public void CreateUICompleteScreen(bool success)
     {
         Transform parent = GetUICanvas();
         GameObject go = Instantiate(uiCompleteScreenPrefab, parent);
         UICompleteScreen uiCompleteScreen = go.GetComponent<UICompleteScreen>();
         uiCompleteScreen.SetScreen(success, CurrentLevel);
-        if (success)
-        {
-            InstantiateConfettiBlast();
-            InstantiateConfettiShower();
-            //StartCoroutine(DoDelayed(0.2f, InstantiateConfettiShower));
-        }
+
 
     }
 
@@ -185,12 +226,23 @@ public class GameManager : MonoBehaviour
     {
         print("Instantiated confetti shower");
         Instantiate(confettiShowerPrefab, Camera.main.transform);
+
+        //Instantiate(confettiShowerPrefab, GameObject.FindGameObjectWithTag("Second Camera").transform);
     }
 
     private void InstantiateConfettiBlast()
     {
         print("Instantiated confetti blast");
         Instantiate(confettiBlastPrefab, Camera.main.transform);
+    }
+
+    public void InstantiateEmojiEffect(int index)
+    {
+        if (index < emojiEffectPrefabs.Length)
+        {
+            Transform cam = Camera.main.transform;
+            Instantiate(emojiEffectPrefabs[index], cam);
+        }
     }
 
     public Transform GetUICanvas()
@@ -216,9 +268,11 @@ public class GameManager : MonoBehaviour
         instructionText.transform.LeanScale(Vector3.one, 0.2f);
         instructionText.text = text;
         LTDescr scaleLoop = null;
-        LeanTween.delayedCall(0.2f, () => { scaleLoop = instructionText.transform.LeanScale(instructionText.transform.localScale * 1.1f, 0.8f).setEaseInQuart().setLoopPingPong(); });
-        LeanTween.delayedCall(time - 0.2f, () => { scaleLoop.pause(); instructionText.transform.LeanScale(Vector3.zero, 0.2f); });
-        Destroy(instructionText, time + 2);
+        if (instructionText)
+        {
+            LeanTween.delayedCall(0.2f, () => { scaleLoop = instructionText.transform.LeanScale(instructionText.transform.localScale * 1.1f, 0.8f).setEaseInQuart().setLoopPingPong(); });
+            LeanTween.delayedCall(time - 0.25f, () => { scaleLoop.pause(); instructionText.transform.LeanScale(Vector3.zero, 0.2f); });
+        }
     }
 
     private UILoadingScreen CreateLoadingScreen()
@@ -237,11 +291,26 @@ public class GameManager : MonoBehaviour
     public void FinishLevel(bool success)
     {
         State = GameState.FINISHED;
-        CreateUICompleteScreen(success);
+        if (CurrentLevel == 1 && PlayerPrefs.GetInt("firstLevelReported") == 0)
+        {
+            PlayerPrefs.SetInt("firstLevelReported", 1);
+            RocFacebookController.ReportFirstLevelCompleted();
+        }
+        RocGm.PlayerProgress.StopProgress(CurrentLevel, success ? 1 : 0);
         if (success)
         {
-            CurrentLevel += 1;
-            AdjustCurrentLevel();
+            InstantiateConfettiBlast();
+            InstantiateConfettiShower();
+            LeanTween.delayedCall(1f, () =>
+            {
+                CreateUICompleteScreen(success);
+                CurrentLevel += 1;
+                AdjustCurrentLevel();
+            });
+        }
+        else
+        {
+            CreateUICompleteScreen(success);
         }
     }
 

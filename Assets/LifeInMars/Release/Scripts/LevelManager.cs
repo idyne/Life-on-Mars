@@ -6,6 +6,16 @@ public abstract class LevelManager : MonoBehaviour
 {
 
     public static LevelManager Instance;
+    public enum LevelType { PLANT, MINERAL, CABLE };
+
+    protected LevelType type;
+    public LevelType Type
+    {
+        get
+        {
+            return type;
+        }
+    }
 
     protected void Awake()
     {

@@ -1,0 +1,277 @@
+fileFormatVersion: 2
+guid: d26a26a9c09b68f4e9c37c996225544c
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -3367933841674000232
+    second: tomato arm|carrot 3 idle
+  - first:
+      74: 6370279868230582779
+    second: tomato arm|carrot 3 to 1
+  - first:
+      74: 3069590725831206796
+    second: tomato arm|carrot 3 to 2
+  - first:
+      74: 5296806386467516983
+    second: tomato arm|carrot 3 to 4
+  - first:
+      74: 2069746237816813544
+    second: tomato arm|carrot 4 idle
+  - first:
+      74: 1770862237598717265
+    second: tomato arm|carrot 4 to 1
+  - first:
+      74: 3178880675104125642
+    second: tomato arm|carrot 4 to 5
+  - first:
+      74: -8156316848149770703
+    second: tomato arm|carrot 5 idle
+  - first:
+      74: -8637346680391395415
+    second: tomato arm|carrot 5 to 1
+  - first:
+      74: 2242470362305543912
+    second: tomato arm|carrot 5 to 6
+  - first:
+      74: -6216054396012665367
+    second: tomato arm|pumpkin 3 idle
+  - first:
+      74: -7529993907121521498
+    second: tomato arm|pumpkin 3 to 1
+  - first:
+      74: 5951373394423303155
+    second: tomato arm|pumpkin 3 to 2
+  - first:
+      74: 3011894786785813689
+    second: tomato arm|pumpkin 3 to 4
+  - first:
+      74: 742340581683863345
+    second: tomato arm|pumpkin 4 idle
+  - first:
+      74: -1845937027306263302
+    second: tomato arm|pumpkin 4 to 1
+  - first:
+      74: -4479137532244201806
+    second: tomato arm|pumpkin 4 to 5
+  - first:
+      74: 1428333923489192956
+    second: tomato arm|pumpkin 5 idle
+  - first:
+      74: -1129067041571076891
+    second: tomato arm|pumpkin 5 to 1
+  - first:
+      74: 9214629987327778417
+    second: tomato arm|pumpkin 5 to 6
+  - first:
+      74: 5710486307198914770
+    second: tomato arm|tomato 3 idle
+  - first:
+      74: -7946142077254355021
+    second: tomato arm|tomato 3 to 1
+  - first:
+      74: -4114718613991153596
+    second: tomato arm|tomato 3 to 2
+  - first:
+      74: 3162233314802847582
+    second: tomato arm|tomato 3 to 4
+  - first:
+      74: -1103599244706014140
+    second: tomato arm|tomato 4 idle
+  - first:
+      74: -7632173296824266051
+    second: tomato arm|tomato 4 to 1
+  - first:
+      74: -2940613316696757813
+    second: tomato arm|tomato 4 to 5
+  - first:
+      74: -3636101787251491390
+    second: tomato arm|tomato 5 idle
+  - first:
+      74: 6909138727169942847
+    second: tomato arm|tomato 5 to 1
+  - first:
+      74: -1268189939916884087
+    second: tomato arm|tomato 5 to 6
+  - first:
+      74: 8419127691973610526
+    second: carrot arm|carrot 3 idle
+  - first:
+      74: 2736301321797368747
+    second: carrot arm|carrot 3 to 1
+  - first:
+      74: 5381054579870226753
+    second: carrot arm|carrot 3 to 2
+  - first:
+      74: -5641979256197526536
+    second: carrot arm|carrot 3 to 4
+  - first:
+      74: 6034619804826771462
+    second: carrot arm|carrot 4 idle
+  - first:
+      74: 6260785422905742035
+    second: carrot arm|carrot 4 to 1
+  - first:
+      74: 3639581406639488855
+    second: carrot arm|carrot 4 to 5
+  - first:
+      74: -9217259572412258873
+    second: carrot arm|carrot 5 idle
+  - first:
+      74: -2561530724364410215
+    second: carrot arm|carrot 5 to 1
+  - first:
+      74: 9221714572080616076
+    second: carrot arm|carrot 5 to 6
+  - first:
+      74: -9001052629452563884
+    second: pumpkin arm|carrot 3 idle
+  - first:
+      74: -6009328340915456635
+    second: pumpkin arm|carrot 3 to 1
+  - first:
+      74: -5739919094285234402
+    second: pumpkin arm|carrot 3 to 2
+  - first:
+      74: 6843339302435820863
+    second: pumpkin arm|carrot 3 to 4
+  - first:
+      74: 6186072955660188372
+    second: pumpkin arm|carrot 4 idle
+  - first:
+      74: 9214156856643406064
+    second: pumpkin arm|carrot 4 to 1
+  - first:
+      74: 3601782575245830956
+    second: pumpkin arm|carrot 4 to 5
+  - first:
+      74: 337532225751309640
+    second: pumpkin arm|carrot 5 idle
+  - first:
+      74: -1308762818928959728
+    second: pumpkin arm|carrot 5 to 1
+  - first:
+      74: -7551920546637953696
+    second: pumpkin arm|carrot 5 to 6
+  - first:
+      74: -9182841925887490389
+    second: pumpkin arm|pumpkin 3 idle
+  - first:
+      74: 8852202658035838294
+    second: pumpkin arm|pumpkin 3 to 1
+  - first:
+      74: 5965489538578757128
+    second: pumpkin arm|pumpkin 3 to 2
+  - first:
+      74: 6225095904791640300
+    second: pumpkin arm|pumpkin 3 to 4
+  - first:
+      74: -9203542760550797706
+    second: pumpkin arm|pumpkin 4 idle
+  - first:
+      74: 7516275154332842974
+    second: pumpkin arm|pumpkin 4 to 1
+  - first:
+      74: 6949913092153606788
+    second: pumpkin arm|pumpkin 4 to 5
+  - first:
+      74: -3571451887658755166
+    second: pumpkin arm|pumpkin 5 idle
+  - first:
+      74: 7101731528395316573
+    second: pumpkin arm|pumpkin 5 to 1
+  - first:
+      74: 6415876240405112838
+    second: pumpkin arm|pumpkin 5 to 6
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

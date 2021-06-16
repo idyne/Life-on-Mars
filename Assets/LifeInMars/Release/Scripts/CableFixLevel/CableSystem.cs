@@ -25,7 +25,7 @@ public class CableSystem : MonoBehaviour
             if (remainingPlugs == 0)
             {
                 locked = true;
-                levelManager.FinishLevel(true);
+                LeanTween.delayedCall(0.5f, () => { levelManager.FinishLevel(true); });
             }
         }
     }

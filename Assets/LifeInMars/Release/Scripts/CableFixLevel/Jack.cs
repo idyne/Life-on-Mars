@@ -80,7 +80,6 @@ public class Jack : MonoBehaviour
             Socket.Occupied = false;
             Vector3 newPos = transform.position;
             newPos += cable.transform.up * 0.04f;
-            print(transform.right);
             newPos -= transform.right * 0.08f;
             transform.LeanMove(newPos, time);
             Instantiate(levelManager.ElectricEffectPrefab, Socket.transform.position, levelManager.ElectricEffectPrefab.transform.rotation);
